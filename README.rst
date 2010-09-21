@@ -2,7 +2,7 @@
 Django Slideshow
 ================
 
-A simple slideshow app for your projects.
+A simple slideshow app for your projects. Use the output with any JavaScript slideshow tool to create awesome slide shows. And I do mean AWESOME!
 
 Features
 ========
