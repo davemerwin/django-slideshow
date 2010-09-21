@@ -1,0 +1,18 @@
+{% if slides %}
+        <div id="slideshow">
+            <div class="slides">
+                {% for slide in slides %}
+                    <div class="slide">
+                        <div class="slideshow_image"><img src="{{ slide.image.display_image.url }}" alt="{{ slide.name }}"></div>
+                        <div class="slideshow_article">
+                            <h3>{{ slide.name }}</h3>
+                            <p>{{ slide.body }}</p>
+                            {% if slide.url %}
+                                <p class="slideshow_link"><a href="{{ slide.url }}">{{ slide.url_text }}</a></p>
+                            {% endif %}
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+{% endif %}
