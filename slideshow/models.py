@@ -7,15 +7,13 @@ from imagekit.models import ImageModel
 class Slideimage(ImageModel):
     name = models.CharField(blank=True, max_length=100)
     original_image = models.ImageField(blank=True, upload_to="slide_images")
-    num_views = models.PositiveIntegerField(editable=False, default=0)
     created = models.DateTimeField(_('created'), default=datetime.now, blank=True)
     modified = models.DateTimeField(_('modified'), blank=True)
     
     class IKOptions:
         """Image options from the imagekit module"""
-        spec_module = 'tri.slideshow.imagespecs'
+        spec_module = 'slideshow.imagespecs'
         image_field = 'original_image'
-        save_count_as = 'num_views'
         admin_thumbnail_spec = 'admin_thumbnail'
         cache_filename_format = "%(specname)s/%(filename)s.%(extension)s"
         cache_dir = '.'
