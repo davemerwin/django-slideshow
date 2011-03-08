@@ -39,6 +39,7 @@ class Slide(models.Model):
     future considerations need to be made for video.
     """
     name = models.CharField(blank=True, max_length=100)
+    # duration = models.IntegerField(blank=True, null=True, help_text="How long should each slide last in miliseconds. 3 seconds would be 3000 miliseconds. Write 3000.")
     header = models.CharField(blank=True, max_length=200)
     body = models.TextField(blank=True)
     image = models.ForeignKey(Slideimage, blank=True, null=True)
