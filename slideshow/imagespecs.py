@@ -6,29 +6,29 @@ from imagekit import processors
 
 # first we define our thumbnail resize processor 
 class ResizeThumb(processors.Resize): 
-    width = 136
-    height = 102 
+    width = 100
+    height = 100 
     crop_horz_field = 1
     crop_vert_field = 1
     
 # first we define our small resize processor 
 class ResizeSmall(processors.Resize): 
-    width = 100
-    height = 100 
+    width = 220
+    height = 154
     crop_horz_field = 1
     crop_vert_field = 1
 
 # first we define our medium resize processor 
 class ResizeMedium(processors.Resize): 
-    width = 136
-    height = 102 
+    width = 460
+    height = 322 
     crop_horz_field = 1
     crop_vert_field = 1
 
 # first we define our large resize processor 
 class ResizeLarge(processors.Resize): 
-    width = 470
-    height = 102 
+    width = 580
+    height = 406
     crop_horz_field = 1
     crop_vert_field = 1
 
@@ -38,7 +38,15 @@ class ResizeExtraLarge(processors.Resize):
     height = 300
     crop = True
     crop_horz_field = 1
-    crop_vert_field = 1 
+    crop_vert_field = 1
+    
+# now we define a extra large size resize processor
+class ResizeFullScreen(processors.Resize):
+    width = 1024
+    height = 768
+    crop = True
+    crop_horz_field = 1
+    crop_vert_field = 1
 
 # now lets create an adjustment processor to enhance the image at small sizes 
 class EnchanceThumb(processors.Adjustment): 
@@ -74,3 +82,9 @@ class ExtraLarge(ImageSpec):
     access_as = 'extralarge'
     pre_cache = True
     processors = [ResizeExtraLarge]
+    
+# and our FullSize spec
+class FullScreen(ImageSpec):
+    access_as = 'fullscreen'
+    pre_cache = True
+    processors = [ResizeFullScreen]
